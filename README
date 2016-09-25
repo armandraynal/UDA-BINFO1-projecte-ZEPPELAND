@@ -1,0 +1,5 @@
+ZEPPELAND is a student project for Arduino at the University of Andorra. Its purpose is to make a zeppelin with a main electrical engine and 
+maybe make it energetically autonomous with solar panels. The objective is to at least make it flying with a remote controler linked by 
+blutooth and then inplement some static skills as, for exemple, reduce acceleration caused by wind in static flight to keep it stable.
+All help and colaborations are welcomed.
+ 

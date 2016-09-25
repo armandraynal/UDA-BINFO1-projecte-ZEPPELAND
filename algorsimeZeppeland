@@ -1,0 +1,38 @@
+// #Pseudo-algorisme del projecte ZEPPELAND
+
+// #Gestio dels instruments 
+// #Accelerometre
+
+// #Giroscop
+
+// #Controlador
+// Aquesta part posa en communicacio per protocol blutooth el arduino i el controlador. Tambe es aqui on es mira si una commanda ha estat enviada des del controlador al zeppelin. Aquesta verificacio es diu remoteCheck i comportara differents checks: checkX, checkY, checkZ. Per aixo, necessitara accedir a unes funccions de read() per saber si han estat activats els botons dels controlador. Els estats possibles de X, Y i Z son {-1, 0, 1}. Per exemple, si X = -1, el usuari a pitjat el boto esquerre del controlador i si Y =1, ha pitjat el boto avancar.
+initComunication()
+{
+}
+
+remoteCheck() // Pstatic es un marcador per saber si el controlador ha enmagatzemat un moviment o cap. Pstatic estara utilitzat despres per saber com s'ha d'activar les funccions de moviment o d'equilibratge
+{
+	checkX <- read(X) // checkX rep  {-1, 0, 1}. 
+	checkY <- read(Y)  // checkY rep  {-1, 0, 1}. 
+	checkZ <- read(Z) // checkZ rep  {-1, 0, 1}. 
+	if ( checkX != 0 || checkY != 0 || checkZ != 0 )
+		Pstatic <- 0
+	else
+		Pstatic <- 1
+	end if
+}
+
+// #Gestio dels servo's
+// #Desplacament eix X
+	servoX <- checkX
+// #Desplacament eix Y
+	servoY <- checkY
+// #Desplacament eix Z
+	servoZ <- checkZ
+	
+// #Equilibratge: 
+// Aqui es on farem totes les operacions per mantener un equilibri estatic del zeppelin amb l'ajuda d'uns liquids i 4 canonades amb 4 tancs. El equilibratge s'hauria de fer per l'accio d'unes "pompes" qu'omplirien els tancs segons el desequilibri. 
+if ( Pstatic == 1 )
+	//equilibrar : fer differencia entre estat de desequilibri actual i el equilibri ideal; corregir l'equilibri fins que la resta entre els dos sigui < a un limit. exemple : e = desIdeal - desActual; while e > limit { equilibrar }
+end if
